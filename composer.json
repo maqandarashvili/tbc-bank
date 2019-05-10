@@ -11,7 +11,13 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": ">=4.0.0"}
+	,"require": {"mage2pro/core": "dev-dfe-fix"},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/maqandarashvili/core"
+		}
+	]
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\TBCBank\\": ""}}
 	,"keywords": [
 		"API"
