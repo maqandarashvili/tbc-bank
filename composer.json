@@ -13,9 +13,6 @@
 			"role": "Developer"
 		}
 	],
-	"require": {
-		"mage2pro/core": ">=4.0.0"
-	},
 	"autoload": {
 		"files": [
 			"registration.php"
