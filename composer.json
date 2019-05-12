@@ -14,7 +14,7 @@
 		}
 	],
 	"require": {
-		"mage2pro/core": "dev-dfe-fix"
+		"maqandarashvili/core": "dev-dfe-fix"
 	},
 	"autoload": {
 		"files": [
