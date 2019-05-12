@@ -14,7 +14,7 @@
 		}
 	],
 	"require": {
-		"maqandarashvili/core": "dev-dfe-fix"
+		"maqandarashvili/core": "*"
 	},
 	"autoload": {
 		"files": [
