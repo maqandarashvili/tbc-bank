@@ -69,74 +69,12 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * Значение готово для применения в запросе API.
 	 * @return null
 	 */
-	function refund($id, $a) {$this->refund_transaction($id, $a);}
-
-	private function curl($query_string)
-	{
-
-
-		$ssl = BP.'/cert.pem';
-		$pass = '2goU9n4kAN6nat-S';
-
-		$curl = curl_init();
-
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $query_string);
-		curl_setopt($curl, CURLOPT_VERBOSE, 1);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 1);
-		curl_setopt($curl, CURLOPT_CAINFO, $ssl);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($curl, CURLOPT_SSLCERT, $ssl);
-		curl_setopt($curl, CURLOPT_SSLKEYPASSWD, $pass);
-		curl_setopt($curl, CURLOPT_URL, $this->submit_url);
-
-		$result = curl_exec($curl);
-
-		$err = curl_error($curl);
-		$info = curl_getinfo($curl);
-
-		return $result;
-	}
-
-	public function refund_transaction($trans_id, $amount)
-	{
-		$post_fields = array(
-			'command'         => 'k',
-			'trans_id'        => $trans_id,
-			'amount'          => $amount,
-		);
-
-		return $this->process($post_fields);
-	}
+	function refund($id, $a) {return F::s()->post([
+		'command' => 'k'
+		,'trans_id' => $id
+	]);}
 
 
-	private function parse_result($string)
-	{
-		$array1 = explode(PHP_EOL, trim($string));
-		$result = array();
-		foreach ($array1 as $key => $value) {
-			$array2 = explode(':', $value);
-			$result[ $array2[0] ] = trim($array2[1]);
-		}
-
-		return $result;
-	}
-
-	private function process($post_fields)
-	{
-		$string = http_build_query($post_fields);
-		$result = $this->curl($string);
-		$parsed = $this->parse_result($result);
-		// var_dump($parsed); die();
-		return $parsed;
-	}
-
-	public function getTbcTransId($tnx_id){
-
-		$transaction_id = substr($tnx_id,0,28);
-
-		return $transaction_id;
-	}
 
 	/**
 	 * 2018-11-14
