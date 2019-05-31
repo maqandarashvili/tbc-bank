@@ -72,6 +72,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function refund($id, $a) {return F::s()->post([
 		'command' => 'k'
 		,'trans_id' => $id
+		,'amount'   => $a
 	]);}
 
 
