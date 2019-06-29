@@ -6,7 +6,7 @@ use Df\Payment\Init\Action;
  * @method Method m()
  * @method Settings s()
  */
-final class Charge extends \Df\Payment\Charge {
+class Charge extends \Df\Payment\Charge {
 	/**
 	 * 2018-12-05
 	 * «If a customer name has any non latin characters description stays completely empty»:

@@ -6,7 +6,7 @@ use Magento\Quote\Api\Data\PaymentInterface as IQP;
 use Magento\Quote\Model\Quote\Address as QA;
 use Magento\Quote\Model\Quote\Payment as QP;
 // 2018-09-28
-final class Init {
+class Init {
 	/**
 	 * 2018-09-28 $cartId is a string like «63b25f081bfb8e4594725d8a58b012f7» for guests.
 	 * 2017-04-20
