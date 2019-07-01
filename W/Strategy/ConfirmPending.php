@@ -6,7 +6,7 @@ use Dfe\TBCBank\W\Event as E;
  * @used-by \Dfe\TBCBank\W\Handler::strategyC()
  * @method E e()
  */
-final class ConfirmPending extends \Df\Payment\W\Strategy\ConfirmPending {
+class ConfirmPending extends \Df\Payment\W\Strategy\ConfirmPending {
 	/**
 	 * 2018-11-13
 	 * @override
